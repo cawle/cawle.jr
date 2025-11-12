@@ -19,7 +19,7 @@ export const Contact = () => {
     const formData = new FormData(e.currentTarget);
     
     try {
-      const response = await fetch("https://submit-form.com/2f1MFKVW9", {
+      const response = await fetch("https://submit-form.com/FRTaGchF8", {
         method: "POST",
         body: formData,
       });
