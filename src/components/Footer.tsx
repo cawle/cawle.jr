@@ -19,7 +19,7 @@ export const Footer = () => {
               className="flex items-center gap-2 text-2xl font-bold"
             >
               <span className="text-4xl">🦌</span>
-              <span className="gradient-text">Cawle.js</span>
+              <span className="gradient-text">Cawle.jr</span>
             </motion.div>
             
             <div className="flex gap-4">
@@ -46,7 +46,7 @@ export const Footer = () => {
               Made with <Heart className="w-4 h-4 text-primary fill-current" /> by Abdullahi Mohamed Ali
             </p>
             <p className="mt-2">
-              © {new Date().getFullYear()} Cawle.js. All rights reserved.
+              © {new Date().getFullYear()} Cawle.jr. All rights reserved.
             </p>
           </div>
         </div>

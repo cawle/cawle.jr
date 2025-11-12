@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Sphere, MeshDistortMaterial } from "@react-three/drei";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import profileImage from "@/assets/profile-image.png";
 
 const AnimatedSphere = () => {
   return (
@@ -135,20 +136,39 @@ export const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right 3D Element */}
+          {/* Right Profile Image with 3D Background */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="h-[400px] lg:h-[600px] relative"
+            className="h-[400px] lg:h-[600px] relative flex items-center justify-center"
           >
-            <Canvas camera={{ position: [0, 0, 5] }}>
-              <ambientLight intensity={0.5} />
-              <directionalLight position={[10, 10, 5]} intensity={1} />
-              <pointLight position={[-10, -10, -5]} intensity={0.5} color="#f29556" />
-              <AnimatedSphere />
-              <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={2} />
-            </Canvas>
+            {/* 3D Background Animation */}
+            <div className="absolute inset-0 opacity-50">
+              <Canvas camera={{ position: [0, 0, 5] }}>
+                <ambientLight intensity={0.5} />
+                <directionalLight position={[10, 10, 5]} intensity={1} />
+                <pointLight position={[-10, -10, -5]} intensity={0.5} color="#f29556" />
+                <AnimatedSphere />
+                <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={2} />
+              </Canvas>
+            </div>
+            
+            {/* Profile Image */}
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="relative z-10"
+            >
+              <motion.img
+                src={profileImage}
+                alt="Abdullahi Mohamed Ali"
+                className="w-[300px] lg:w-[450px] h-auto object-contain drop-shadow-2xl"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.div>
             
             {/* Floating particles effect */}
             <div className="absolute inset-0 pointer-events-none">

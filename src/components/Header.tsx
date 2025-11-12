@@ -48,7 +48,7 @@ export const Header = () => {
             whileHover={{ scale: 1.05 }}
           >
             <span className="text-4xl">🦌</span>
-            <span className="gradient-text">Cawle.js</span>
+            <span className="gradient-text">Cawle.jr</span>
           </motion.a>
 
           {/* Desktop Navigation */}
