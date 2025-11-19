@@ -108,13 +108,13 @@ export const Header = () => {
           animate={{ height: mobileMenuOpen ? "auto" : 0, opacity: mobileMenuOpen ? 1 : 0 }}
           className="overflow-hidden md:hidden"
         >
-          <div className="flex flex-col gap-4 py-6">
+          <div className="flex flex-col gap-4 py-6 px-4 bg-background/95 backdrop-blur-lg rounded-lg mt-4 border border-border/50 shadow-lg">
             {navigation.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-lg font-medium hover:text-primary transition-colors"
+                className="text-lg font-medium hover:text-primary transition-colors py-2 px-3 rounded-md hover:bg-accent"
               >
                 {item.name}
               </a>
