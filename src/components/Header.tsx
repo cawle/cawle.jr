@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Moon, Sun, Menu, X } from "lucide-react";
+import { Moon, Sun, Menu, X, Github, Linkedin, Twitter, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navigation = [
@@ -9,6 +9,13 @@ const navigation = [
   { name: "Projects", href: "/#projects" },
   { name: "Newsletter", href: "/newsletter" },
   { name: "Contact", href: "/#contact" },
+];
+
+const socialLinks = [
+  { name: "GitHub", icon: Github, href: "https://github.com" },
+  { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com" },
+  { name: "Twitter", icon: Twitter, href: "https://twitter.com" },
+  { name: "Email", icon: Mail, href: "mailto:contact@example.com" },
 ];
 
 export const Header = () => {
@@ -53,7 +60,7 @@ export const Header = () => {
           </motion.a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navigation.map((item) => (
               <motion.a
                 key={item.name}
@@ -65,6 +72,25 @@ export const Header = () => {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </motion.a>
             ))}
+            
+            <div className="flex items-center gap-2 ml-2 pl-6 border-l border-border/50">
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <motion.a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground hover:text-primary transition-colors"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Icon className="h-5 w-5" />
+                  </motion.a>
+                );
+              })}
+            </div>
             
             <Button
               variant="ghost"
@@ -119,6 +145,24 @@ export const Header = () => {
                 {item.name}
               </a>
             ))}
+            
+            <div className="flex items-center justify-center gap-4 pt-4 mt-4 border-t border-border/30">
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-foreground hover:text-primary transition-all p-2 rounded-md hover:bg-primary/10"
+                  >
+                    <Icon className="h-6 w-6" />
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </motion.div>
       </nav>
