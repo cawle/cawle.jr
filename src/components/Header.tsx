@@ -4,11 +4,11 @@ import { Moon, Sun, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navigation = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Projects", href: "#projects" },
+  { name: "Home", href: "/" },
+  { name: "About", href: "/#about" },
+  { name: "Projects", href: "/#projects" },
   { name: "Newsletter", href: "/newsletter" },
-  { name: "Contact", href: "#contact" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export const Header = () => {
@@ -44,7 +44,7 @@ export const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <motion.a
-            href="#home"
+            href="/"
             className="flex items-center gap-2 text-2xl font-bold"
             whileHover={{ scale: 1.05 }}
           >
