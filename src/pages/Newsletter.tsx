@@ -19,18 +19,18 @@ const Newsletter = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="container mx-auto px-6 pt-32 pb-20">
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 gradient-text">Newsletter</h1>
-          <p className="text-xl text-muted-foreground mb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 gradient-text">Newsletter</h1>
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 sm:mb-10 md:mb-12">
             Thoughts, lessons, and reflections on tech and life
           </p>
 
-          <div className="grid gap-8">
+          <div className="grid gap-6 sm:gap-8">
             {posts.map((post, index) => (
               <motion.div
                 key={post.id}
@@ -39,21 +39,21 @@ const Newsletter = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                  <div className="md:flex">
-                    <div className="md:w-1/3">
+                  <div className="flex flex-col md:flex-row">
+                    <div className="w-full md:w-1/3">
                       <img
                         src={post.image}
                         alt={post.title}
-                        className="w-full h-64 md:h-full object-cover"
+                        className="w-full h-48 sm:h-56 md:h-full object-cover"
                       />
                     </div>
-                    <div className="md:w-2/3">
-                      <CardHeader>
-                        <CardTitle className="text-3xl">{post.title}</CardTitle>
-                        <CardDescription className="text-base">{post.date}</CardDescription>
+                    <div className="w-full md:w-2/3">
+                      <CardHeader className="p-4 sm:p-6">
+                        <CardTitle className="text-xl sm:text-2xl md:text-3xl">{post.title}</CardTitle>
+                        <CardDescription className="text-sm sm:text-base">{post.date}</CardDescription>
                       </CardHeader>
-                      <CardContent>
-                        <p className="text-foreground leading-relaxed text-lg">
+                      <CardContent className="p-4 sm:p-6 pt-0">
+                        <p className="text-foreground leading-relaxed text-sm sm:text-base md:text-lg">
                           {post.content}
                         </p>
                       </CardContent>
