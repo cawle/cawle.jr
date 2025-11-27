@@ -52,11 +52,20 @@ export const Header = () => {
           {/* Logo */}
           <motion.a
             href="/"
-            className="flex items-center gap-2 text-2xl font-bold"
-            whileHover={{ scale: 1.05 }}
+            className="flex items-center gap-3 text-2xl font-black relative"
+            whileHover={{ scale: 1.05, rotate: 1 }}
           >
-            <span className="text-4xl">🦌</span>
-            <span className="gradient-text">Cawle.jr</span>
+            <motion.span 
+              className="text-4xl"
+              animate={{ rotate: [0, 10, -10, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              🦌
+            </motion.span>
+            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent bg-[length:200%_100%] animate-[shimmer_3s_ease-in-out_infinite]">
+              Cawle.jr
+            </span>
+            <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent" />
           </motion.a>
 
           {/* Desktop Navigation */}
