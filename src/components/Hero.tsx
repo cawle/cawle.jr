@@ -46,27 +46,6 @@ export const Hero = () => {
             transition={{ duration: 0.8 }}
             className="space-y-6"
           >
-            {/* Animated Logo */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              whileHover={{ scale: 1.05, rotate: 1 }}
-              className="flex items-center gap-3 text-3xl font-black relative w-fit"
-            >
-              <motion.span 
-                className="text-5xl"
-                animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              >
-                🦌
-              </motion.span>
-              <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent bg-[length:200%_100%] animate-[shimmer_3s_ease-in-out_infinite]">
-                Cawle.jr
-              </span>
-              <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
-            </motion.div>
-
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
