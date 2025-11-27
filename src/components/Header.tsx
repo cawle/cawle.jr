@@ -65,15 +65,17 @@ export const Header = () => {
               <motion.a
                 key={item.name}
                 href={item.href}
-                className="text-foreground hover:text-primary transition-colors font-medium relative group"
-                whileHover={{ y: -2 }}
+                className="relative text-foreground hover:text-primary transition-all group font-semibold text-lg"
+                whileHover={{ y: -4, scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] scale-x-0 group-hover:scale-x-100 transition-all duration-500 group-hover:animate-[shimmer_2s_ease-in-out_infinite] rounded-full" />
+                <span className="absolute -bottom-2 left-0 w-full h-1 bg-primary/30 blur-sm scale-x-0 group-hover:scale-x-100 transition-all duration-500 rounded-full" />
               </motion.a>
             ))}
             
-            <div className="flex items-center gap-2 ml-2 pl-6 border-l border-border/50">
+            <div className="flex items-center gap-3 ml-2 pl-6 border-l-2 border-border/50">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
@@ -82,9 +84,9 @@ export const Header = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-foreground hover:text-primary transition-colors"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
+                    className="p-2 rounded-lg bg-primary/10 text-foreground hover:text-primary hover:bg-primary/20 transition-all border border-primary/20 hover:border-primary"
+                    whileHover={{ scale: 1.15, rotate: 5 }}
+                    whileTap={{ scale: 0.9 }}
                   >
                     <Icon className="h-5 w-5" />
                   </motion.a>
@@ -140,7 +142,7 @@ export const Header = () => {
                 key={item.name}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-lg font-medium text-foreground hover:text-primary transition-all py-2 px-3 rounded-md hover:bg-primary/10"
+                className="relative text-xl text-foreground hover:text-primary transition-all hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20 px-6 py-4 rounded-xl font-bold border-b-2 border-transparent hover:border-primary"
               >
                 {item.name}
               </a>
