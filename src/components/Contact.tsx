@@ -12,36 +12,18 @@ export const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     setIsSubmitting(true);
-
-    const formData = new FormData(e.currentTarget);
     
-    try {
-      const response = await fetch("https://submit-form.com/tv9aKZh0I", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (response.ok) {
-        toast({
-          title: "Message sent successfully!",
-          description: "Thank you for reaching out. I'll get back to you soon.",
-        });
-        e.currentTarget.reset();
-      } else {
-        throw new Error("Failed to send message");
-      }
-    } catch (error) {
+    // Form will submit to the action URL via hidden iframe
+    setTimeout(() => {
       toast({
-        title: "Failed to send message",
-        description: "Please try again or contact me directly via email.",
-        variant: "destructive",
+        title: "Thank you for your message.",
+        description: "A response will be provided within 24 hours.",
       });
-    } finally {
+      e.currentTarget.reset();
       setIsSubmitting(false);
-    }
+    }, 500);
   };
 
   const contactInfo = [
@@ -141,7 +123,14 @@ export const Contact = () => {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <iframe name="contact-frame" style={{ display: 'none' }} />
+            <form 
+              action="https://submit-form.com/tv9aKZh0I" 
+              method="POST"
+              target="contact-frame"
+              onSubmit={handleSubmit} 
+              className="space-y-6"
+            >
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium">
