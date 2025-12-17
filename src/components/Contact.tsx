@@ -14,6 +14,7 @@ export const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     setIsSubmitting(true);
+    const form = e.currentTarget;
     
     // Form will submit to the action URL via hidden iframe
     setTimeout(() => {
@@ -21,9 +22,9 @@ export const Contact = () => {
         title: "Thank you for your message.",
         description: "A response will be provided within 24 hours.",
       });
-      e.currentTarget.reset();
+      form.reset();
       setIsSubmitting(false);
-    }, 500);
+    }, 1500);
   };
 
   const contactInfo = [
