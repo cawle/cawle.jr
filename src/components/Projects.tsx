@@ -5,6 +5,7 @@ import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
+import carbonFootprintImg from "@/assets/projects/carbon-footprint.jpg";
 import brainTumorImg from "@/assets/projects/brain-tumor.png";
 import loanlyticsImg from "@/assets/projects/loanlytics.png";
 import oceangateImg from "@/assets/projects/oceangate.png";
@@ -19,7 +20,7 @@ const projects = [
     description: "A web-based tool that calculates personal carbon emissions based on electricity usage, diet, flights, and vehicle activity, with secure authentication and interactive charts.",
     category: "Web",
     tags: ["PHP", "JavaScript", "HTML", "CSS", "Chart.js"],
-    image: null,
+    image: carbonFootprintImg,
     gradient: "from-green-500 to-emerald-600",
     github: "https://lnkd.in/dayAC-3V",
     demo: null,
