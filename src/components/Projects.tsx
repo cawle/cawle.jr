@@ -1,9 +1,15 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 import carbonFootprintImg from "@/assets/projects/carbon-footprint.jpg";
 import brainTumorImg from "@/assets/projects/brain-tumor.png";
@@ -99,7 +105,7 @@ const projects = [
 
 const categories = ["All", "Web", "AI", "Data"];
 
-const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: number }) => {
+const ProjectCard = ({ project, index, onSelect }: { project: typeof projects[0]; index: number; onSelect: () => void }) => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
@@ -109,7 +115,10 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <Card className="group overflow-hidden border-border/50 hover:border-primary/50 transition-all duration-300 card-hover h-full flex flex-col">
+      <Card 
+        className="group overflow-hidden border-border/50 hover:border-primary/50 transition-all duration-300 card-hover h-full flex flex-col cursor-pointer"
+        onClick={onSelect}
+      >
         {/* Project Image */}
         <div className={`h-48 relative overflow-hidden ${!project.image ? `bg-gradient-to-br ${project.gradient}` : ''}`}>
           {project.image ? (
@@ -160,7 +169,10 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
                 variant="outline" 
                 size="sm" 
                 className="gap-2 flex-1"
-                onClick={() => window.open(project.github, '_blank')}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open(project.github, '_blank');
+                }}
               >
                 <Github className="w-4 h-4" />
                 Code
@@ -170,7 +182,10 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
               <Button 
                 size="sm" 
                 className="gap-2 flex-1"
-                onClick={() => window.open(project.demo, '_blank')}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open(project.demo, '_blank');
+                }}
               >
                 <ExternalLink className="w-4 h-4" />
                 Demo
@@ -180,7 +195,10 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
               <Button 
                 size="sm" 
                 className="gap-2 flex-1"
-                onClick={() => window.open(project.github, '_blank')}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open(project.github, '_blank');
+                }}
               >
                 <ExternalLink className="w-4 h-4" />
                 View
@@ -193,8 +211,82 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
   );
 };
 
+const ProjectModal = ({ project, isOpen, onClose }: { project: typeof projects[0] | null; isOpen: boolean; onClose: () => void }) => {
+  if (!project) return null;
+
+  return (
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle className="text-2xl font-bold gradient-text">{project.title}</DialogTitle>
+        </DialogHeader>
+        
+        <div className="space-y-6">
+          {/* Large Image */}
+          <div className={`w-full h-64 md:h-80 rounded-lg overflow-hidden ${!project.image ? `bg-gradient-to-br ${project.gradient}` : ''}`}>
+            {project.image ? (
+              <img 
+                src={project.image} 
+                alt={project.title}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <div className={`w-full h-full bg-gradient-to-br ${project.gradient}`} />
+            )}
+          </div>
+
+          {/* Full Description */}
+          <div>
+            <h4 className="text-sm font-semibold text-muted-foreground mb-2">Description</h4>
+            <p className="text-foreground leading-relaxed">{project.description}</p>
+          </div>
+
+          {/* All Tags */}
+          <div>
+            <h4 className="text-sm font-semibold text-muted-foreground mb-3">Technologies</h4>
+            <div className="flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1.5 text-sm font-medium bg-primary/10 text-primary rounded-full"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex gap-4 pt-4">
+            {project.github && (
+              <Button 
+                variant="outline" 
+                className="gap-2 flex-1"
+                onClick={() => window.open(project.github, '_blank')}
+              >
+                <Github className="w-5 h-5" />
+                View Code
+              </Button>
+            )}
+            {project.demo && (
+              <Button 
+                className="gap-2 flex-1"
+                onClick={() => window.open(project.demo, '_blank')}
+              >
+                <ExternalLink className="w-5 h-5" />
+                Live Demo
+              </Button>
+            )}
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+};
+
 export const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const filteredProjects = selectedCategory === "All" 
@@ -241,10 +333,22 @@ export const Projects = () => {
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
-            <ProjectCard key={project.title} project={project} index={index} />
+            <ProjectCard 
+              key={project.title} 
+              project={project} 
+              index={index} 
+              onSelect={() => setSelectedProject(project)}
+            />
           ))}
         </div>
       </div>
+
+      {/* Project Detail Modal */}
+      <ProjectModal 
+        project={selectedProject} 
+        isOpen={!!selectedProject} 
+        onClose={() => setSelectedProject(null)} 
+      />
     </section>
   );
 };
