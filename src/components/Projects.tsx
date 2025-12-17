@@ -84,7 +84,7 @@ const projects = [
   {
     title: "Digital Marketing Campaign Optimization",
     description: "A data mining project applying Market Basket Analysis, customer segmentation, recommender systems, and anomaly detection to optimize marketing strategies.",
-    category: "Data",
+    category: "Machine Learning",
     tags: ["Python", "Scikit-learn", "Pandas", "K-Means"],
     image: digitalMarketingImg,
     gradient: "from-indigo-500 to-violet-600",
@@ -103,7 +103,7 @@ const projects = [
   },
 ];
 
-const categories = ["All", "Web", "AI", "Data"];
+const categories = ["All", "Web", "AI", "Data", "Machine Learning"];
 
 const ProjectCard = ({ project, index, onSelect }: { project: typeof projects[0]; index: number; onSelect: () => void }) => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
