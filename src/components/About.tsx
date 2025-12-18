@@ -24,6 +24,9 @@ import ieltsCert from "@/assets/about/ielts-cert.png";
 import treasurerCert from "@/assets/about/treasurer-cert.png";
 import ibmAnalyticsCert from "@/assets/about/ibm-analytics-cert.jpg";
 import tableauCert from "@/assets/about/tableau-cert.jpg";
+import primarySchool from "@/assets/about/primary-school.jpg";
+import aiuLogo from "@/assets/about/aiu-logo.png";
+import royalPalace from "@/assets/about/royal-palace.jpg";
 
 const technicalSkills = [
   { name: "HTML", level: 90 },
@@ -53,6 +56,7 @@ const education = [
     institution: "Ain Shams Primary and Secondary School (ASPASS) and Galdogob School",
     location: "Galdogob, Somalia",
     links: ["https://www.facebook.com/Ainshamsischool", "https://www.facebook.com/galdogobschool/"],
+    image: primarySchool,
   },
   {
     year: "2021",
@@ -75,6 +79,8 @@ const education = [
     title: "Bachelor of Computer Science (Honours)",
     institution: "Albukhary International University (AIU)",
     location: "Kedah, Malaysia",
+    link: "https://aiu.edu.my/",
+    image: aiuLogo,
   },
 ];
 
@@ -103,6 +109,7 @@ const experience = [
     title: "Cashier",
     company: "Royal Palace Hotel, Galdogob",
     description: "Managed customer payments, prepared daily transaction reports, and supported front-desk operations in a hotel environment.",
+    image: royalPalace,
   },
   {
     year: "2024–2025",
