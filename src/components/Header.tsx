@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Moon, Sun, Menu, X, Github, Linkedin, Mail, Zap } from "lucide-react";
+import { Moon, Sun, Menu, X, Github, Linkedin, Mail, Zap, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/#about" },
   { name: "Projects", href: "/#projects" },
-  { name: "Newsletter", href: "/newsletter" },
+  { name: "CV", href: "/cv.pdf", isCV: true },
   { name: "Contact", href: "/#contact" },
 ];
 
@@ -73,6 +73,9 @@ export const Header = () => {
               <motion.a
                 key={item.name}
                 href={item.href}
+                target={item.isCV ? "_blank" : undefined}
+                rel={item.isCV ? "noopener noreferrer" : undefined}
+                download={item.isCV ? true : undefined}
                 className="relative text-foreground hover:text-primary transition-all group font-black text-lg px-4 py-2 rounded-lg overflow-hidden"
                 whileHover={{ y: -6, scale: 1.1, rotate: 2 }}
                 whileTap={{ scale: 0.9 }}
@@ -89,7 +92,10 @@ export const Header = () => {
                   animate={{ x: ["-100%", "200%"] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                 />
-                <span className="relative z-10">{item.name}</span>
+                <span className="relative z-10 flex items-center gap-1">
+                  {item.isCV && <FileText className="w-4 h-4" />}
+                  {item.name}
+                </span>
                 <motion.span 
                   className="absolute -bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] scale-x-0 group-hover:scale-x-100 transition-all duration-500 group-hover:animate-[shimmer_1.5s_ease-in-out_infinite] rounded-full shadow-[0_0_10px_rgba(var(--primary),0.5)]"
                 />
@@ -195,13 +201,17 @@ export const Header = () => {
               <motion.a
                 key={item.name}
                 href={item.href}
+                target={item.isCV ? "_blank" : undefined}
+                rel={item.isCV ? "noopener noreferrer" : undefined}
+                download={item.isCV ? true : undefined}
                 onClick={() => setMobileMenuOpen(false)}
-                className="relative text-xl text-foreground hover:text-primary transition-all hover:bg-gradient-to-r hover:from-primary/30 hover:to-accent/30 px-6 py-4 rounded-xl font-black border-2 border-transparent hover:border-primary shadow-md hover:shadow-lg"
+                className="relative text-xl text-foreground hover:text-primary transition-all hover:bg-gradient-to-r hover:from-primary/30 hover:to-accent/30 px-6 py-4 rounded-xl font-black border-2 border-transparent hover:border-primary shadow-md hover:shadow-lg flex items-center gap-2"
                 initial={{ x: -50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: index * 0.1 }}
                 whileTap={{ scale: 0.95 }}
               >
+                {item.isCV && <FileText className="w-5 h-5" />}
                 {item.name}
               </motion.a>
             ))}
