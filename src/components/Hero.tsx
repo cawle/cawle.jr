@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Sphere, MeshDistortMaterial } from "@react-three/drei";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { Github, Linkedin, Mail, Phone, MapPin, FileText } from "lucide-react";
 import profileImage from "@/assets/profile-image.png";
 
 const AnimatedSphere = () => {
@@ -96,6 +96,12 @@ export const Hero = () => {
               </Button>
               <Button asChild variant="outline" size="lg" className="gap-2">
                 <a href="#contact">Get In Touch</a>
+              </Button>
+              <Button asChild variant="secondary" size="lg" className="gap-2">
+                <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" download>
+                  <FileText className="w-4 h-4" />
+                  Download CV
+                </a>
               </Button>
             </motion.div>
 
