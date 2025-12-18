@@ -377,16 +377,32 @@ export const About = () => {
                     <h4 className="text-lg font-semibold mt-1">{edu.title}</h4>
                     <p className="text-muted-foreground text-sm">{edu.institution}</p>
                     <p className="text-muted-foreground text-xs mt-1">{edu.location}</p>
-                    {edu.link && (
+                    {"links" in edu && Array.isArray(edu.links) && edu.links.length > 0 ? (
+                      <div className="flex flex-wrap gap-3 mt-2">
+                        {edu.links.map((url, i) => (
+                          <a
+                            key={`${url}-${i}`}
+                            href={url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-primary text-xs hover:underline"
+                            aria-label={`Visit link ${i + 1} for ${edu.institution}`}
+                          >
+                            <ExternalLink className="w-3 h-3" /> Visit {i + 1}
+                          </a>
+                        ))}
+                      </div>
+                    ) : edu.link ? (
                       <a
                         href={edu.link}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1 text-primary text-xs mt-2 hover:underline"
+                        aria-label={`Visit ${edu.institution}`}
                       >
                         <ExternalLink className="w-3 h-3" /> Visit
                       </a>
-                    )}
+                    ) : null}
                   </div>
                 </div>
               </motion.div>
