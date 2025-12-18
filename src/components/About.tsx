@@ -109,6 +109,7 @@ const experience = [
     title: "Cashier",
     company: "Royal Palace Hotel, Galdogob",
     description: "Managed customer payments, prepared daily transaction reports, and supported front-desk operations in a hotel environment.",
+    link: "https://www.google.com/travel/search?q=Royal%20Palace%20Hotel%2C%20Galdogob&g2lb=4965990%2C72317059%2C72414906%2C72471280%2C72485658%2C72560029%2C72573224%2C72647020%2C72686036%2C72803964%2C72882230%2C72958624%2C73059275%2C73064764%2C73107089%2C73169520%2C73192290&hl=en-MY&gl=my&cs=1&ssta=1&ts=CAEaKwopEicyJTB4M2Q3OWJkMDQ3MDZmMDk3OToweGVmOGY0ZDcxY2UxODJjZmQ&qs=CAEyFENnc0lfZG5nOEp5dTA4ZnZBUkFCOAI&ap=ugEHcmV2aWV3cw&ictx=111&ved=0CAAQ5JsGahcKEwiwz5LIqseRAxUAAAAAHQAAAAAQBQ",
     image: royalPalace,
   },
   {
