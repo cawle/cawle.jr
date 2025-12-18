@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
 /* Cawle.js Design System - Modern Tech Portfolio */
+
 
 @layer base {
   :root {
@@ -176,5 +177,32 @@
 
   .scroll-smooth {
     scroll-behavior: smooth;
+  }
+}
+
+
+
+
+/* Mobile responsive fixes */
+@media (max-width: 1024px) {
+  /* Ensure all clickable elements are accessible */
+  button, 
+  a, 
+  [role="button"], 
+  .cursor-pointer {
+    min-height: 44px; /* Apple's recommended minimum touch target size */
+    min-width: 44px;
+  }
+  
+  /* Mobile menu items */
+  .lg\\:hidden button,
+  .lg\\:hidden a {
+    position: relative;
+    z-index: 20;
+  }
+  
+  /* Ensure pointer events work correctly */
+  * {
+    -webkit-tap-highlight-color: transparent;
   }
 }
