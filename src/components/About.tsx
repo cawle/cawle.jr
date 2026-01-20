@@ -65,7 +65,6 @@ const softSkills = [
   { name: "Teamwork", level: 90, icon: Users },
   { name: "Problem Solving", level: 80, icon: Lightbulb },
   { name: "Creativity", level: 90, icon: Sparkles },
-  { name: "AI Powered", level: 99, icon: Brain },
 ];
 
 const education = [
@@ -462,13 +461,11 @@ export const About = () => {
                 </h3>
                 <div className="space-y-4 text-gray-600 dark:text-gray-300">
                   <p>
-                    Abdullahi Mohamed Ali is an aspiring computer science professional with hands-on experience in full-stack web development, mobile application development, AI-powered tools, and data analytics.
+                   Abdullahi Mohamed Ali is an aspiring software engineering professional with hands-on experience in full-stack web development, mobile application development, and data analytics. He builds responsive, user-friendly applications using modern development technologies and follows clean, maintainable coding practices.
                   </p>
                   <p>
-                    He builds responsive and user-friendly applications using modern technologies and has a solid foundation in Android mobile app development using Java, along with practical knowledge of machine learning and deep learning.
-                  </p>
-                  <p>
-                    He actively uses AI-powered platforms to accelerate development and applies data analysis techniques to transform complex data into actionable insights.
+                   He has a solid foundation in Android mobile application development using Java, along with practical knowledge of machine learning and deep learning concepts.
+                   With additional experience in data analysis, he is able to work with data to extract meaningful insights that support informed technical and business decisions.
                   </p>
                 </div>
               </div>
@@ -501,7 +498,7 @@ export const About = () => {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 dark:text-gray-400">Experience</p>
-                    <p className="text-lg font-bold text-gray-900 dark:text-white">4+ Years</p>
+                    <p className="text-lg font-bold text-gray-900 dark:text-white">3+ Years</p>
                   </div>
                 </div>
               </motion.div>
