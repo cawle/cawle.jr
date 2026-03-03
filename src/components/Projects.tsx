@@ -14,7 +14,8 @@ import {
   Globe,
   Zap,
   ArrowRight,
-  Filter
+  Filter,
+  Smartphone  // Added for mobile app icon
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -94,6 +95,19 @@ const projects = [
     featured: false,
   },
   {
+    title: "MyExpense — Android Expense Manager",
+    description: "A native Android application that helps employees record work-related trips and manage expenses efficiently, with local SQLite storage, CRUD operations, and search functionality.",
+    category: "Mobile",
+    tags: ["Android", "Java", "SQLite", "Mobile Dev", "CRUD"],
+    image: "https://i.postimg.cc/J0hgTDQY/My-Expense-project.png",
+    gradient: "from-orange-500 to-amber-600",
+    icon: Smartphone,
+    color: "from-orange-500 to-amber-500",
+    github: "https://github.com/cawle/MyExpense---Android-Expense-Tracking-Application.git",
+    demo: null,
+    featured: true,
+  },
+  {
     title: "NLP Text Classification Lab",
     description: "A text classification project focused on spam detection and news group classification using multiple ML models, TF-IDF vectorization, and confusion matrices.",
     category: "Data",
@@ -134,7 +148,7 @@ const projects = [
   },
 ];
 
-const categories = ["All", "Web", "AI", "Data"];
+const categories = ["All", "Web", "AI", "Data", "Mobile"];
 
 export const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -250,7 +264,7 @@ export const Projects = () => {
             </span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            A showcase of my work in web development, data science, and AI
+            A showcase of my work in web development, data science, AI, and mobile development
           </p>
         </motion.div>
 
@@ -381,6 +395,10 @@ export const Projects = () => {
                         src={project.image} 
                         alt={project.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        onError={(e) => {
+                          // Fallback if image fails to load
+                          e.currentTarget.src = "https://via.placeholder.com/400x200?text=Project+Image";
+                        }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                       <div className="absolute top-4 left-4">
@@ -433,13 +451,13 @@ export const Projects = () => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             onClick={(e) => e.stopPropagation()}
-                            className="flex items-center justify-center gap-2 flex-1 px-4 py-2 text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                            className="flex items-center justify-center gap-2 flex-1 px-4 py-2 text-sm font-medium bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all"
                           >
                             <Github className="w-4 h-4" />
                             Code
                           </motion.a>
                         )}
-                        {project.demo ? (
+                        {project.demo && (
                           <motion.a
                             href={project.demo}
                             target="_blank"
@@ -452,20 +470,7 @@ export const Projects = () => {
                             <ExternalLink className="w-4 h-4" />
                             Demo
                           </motion.a>
-                        ) : project.github ? (
-                          <motion.a
-                            href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            onClick={(e) => e.stopPropagation()}
-                            className="flex items-center justify-center gap-2 flex-1 px-4 py-2 text-sm font-medium bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all"
-                          >
-                            <ExternalLink className="w-4 h-4" />
-                            View
-                          </motion.a>
-                        ) : null}
+                        )}
                       </div>
                     </div>
                   </div>
@@ -534,6 +539,9 @@ export const Projects = () => {
                       src={selectedProject.image} 
                       alt={selectedProject.title}
                       className="w-full h-64 object-cover"
+                      onError={(e) => {
+                        e.currentTarget.src = "https://via.placeholder.com/800x400?text=Project+Image";
+                      }}
                     />
                   </div>
 
@@ -567,7 +575,7 @@ export const Projects = () => {
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="flex items-center justify-center gap-2 flex-1 px-6 py-3 font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                        className="flex items-center justify-center gap-2 flex-1 px-6 py-3 font-medium bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all"
                       >
                         <Github className="w-5 h-5" />
                         View Code

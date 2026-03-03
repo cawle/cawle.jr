@@ -155,7 +155,7 @@ export const Hero = () => {
             >
               Aspiring <span className="text-primary font-semibold bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent">Software Engineer</span> |{" "}
               <span className="text-secondary font-semibold bg-gradient-to-r from-accent to-accent bg-clip-text text-transparent">Data Science Student</span> |{" "}
-              Full-Stack Developer
+              <span className="text-primary font-semibold bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent">Tech Enthusiast</span>  
             </motion.p>
 
             {/* Enhanced University */}
