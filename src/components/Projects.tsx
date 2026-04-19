@@ -4,7 +4,6 @@ import {
   ExternalLink, 
   Github, 
   Code,
-  Server,
   Brain,
   Database,
   Sparkles,
@@ -15,7 +14,17 @@ import {
   Zap,
   ArrowRight,
   Filter,
-  Smartphone  // Added for mobile app icon
+  Smartphone,
+  FileText,
+  BarChart3,
+  Clock,
+  Cloud,
+  Heart,
+  Activity,
+  Users,
+  Building2,
+  Droplets,
+  Server
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -40,7 +49,7 @@ const projects = [
     color: "from-emerald-500 to-teal-500",
     github: "https://lnkd.in/dayAC-3V",
     demo: null,
-    featured: true,
+    featured: false,
   },
   {
     title: "Brain Tumor Diagnosis Using Deep Learning",
@@ -55,19 +64,7 @@ const projects = [
     demo: null,
     featured: true,
   },
-  {
-    title: "LoanLytics — AI-Powered Islamic Finance",
-    description: "An AI-powered platform for Sharia-compliant loan and profit-rate calculations, combining automated AI processing with ethical financial rules.",
-    category: "Web",
-    tags: ["React", "TypeScript", "Tailwind CSS", "Supabase", "AI"],
-    image: loanlyticsImg,
-    gradient: "from-blue-500 to-cyan-600",
-    icon: Brain,
-    color: "from-blue-500 to-cyan-500",
-    github: "https://lnkd.in/dJSCG7tS",
-    demo: "https://lnkd.in/dg5z9H_2",
-    featured: true,
-  },
+ 
   {
     title: "OceanGate Real Estate Platform",
     description: "A complete multi-role real estate system with admin, agent, and buyer dashboards, supporting property listings, approvals, payments, and workflows.",
@@ -79,7 +76,7 @@ const projects = [
     color: "from-blue-500 to-indigo-500",
     github: "https://github.com/cawle/OceanGate-Real-Estate",
     demo: "https://lnkd.in/dKsnMd7C",
-    featured: true,
+    featured: false,
   },
   {
     title: "JUSMOV — Movie Streaming Platform",
@@ -105,7 +102,7 @@ const projects = [
     color: "from-orange-500 to-amber-500",
     github: "https://github.com/cawle/MyExpense---Android-Expense-Tracking-Application.git",
     demo: null,
-    featured: true,
+    featured: false,
   },
   {
     title: "NLP Text Classification Lab",
@@ -117,8 +114,8 @@ const projects = [
     icon: Database,
     color: "from-amber-500 to-yellow-500",
     github: "https://github.com/cawle/NLP_Lab",
-    demo: null,
-    featured: false,
+     demo: "https://nlptextclassification.streamlit.app/",
+    featured: true,
   },
   {
     title: "Digital Marketing Campaign Optimization",
@@ -130,22 +127,48 @@ const projects = [
     icon: Database,
     color: "from-indigo-500 to-purple-500",
     github: "https://github.com/cawle/Machine-Learning-Group_Project",
-    demo: null,
-    featured: false,
+   demo: "https://digitalmarketingcampaign.streamlit.app/",
+    featured: true,
   },
-  {
-    title: "Digital Marketing Data Mining Framework",
-    description: "An end-to-end analytical framework integrating clustering, recommendation systems, association rule mining, and anomaly detection for marketing decisions.",
-    category: "Data",
-    tags: ["Python", "Scikit-learn", "Pandas", "MLxtend", "Data Mining"],
-    image: dataMiningImg,
-    gradient: "from-teal-500 to-green-600",
-    icon: Database,
-    color: "from-teal-500 to-emerald-500",
-    github: "https://github.com/cawle/Data-Mining-Group-Project",
-    demo: null,
-    featured: false,
-  },
+{
+  title: "Digital Marketing Data Mining Framework",
+  description: "An end-to-end analytical framework integrating clustering, recommendation systems, association rule mining, and anomaly detection for marketing decisions.",
+  category: "Data",
+  tags: ["Python", "Scikit-learn", "Pandas", "MLxtend", "Data Mining"],
+  image: dataMiningImg,
+  gradient: "from-teal-500 to-green-600",
+  icon: Database,
+  color: "from-teal-500 to-emerald-500",
+  github: "https://github.com/cawle/Data-Mining-Group-Project",
+  demo: "https://ifoodmarketingintelligence.streamlit.app/",
+  featured: true,
+},
+{
+  title: "TiroText — Smart Text Analysis Tool",
+  description: "A real-time text analysis web application built with Angular. Provides instant insights including word, character, sentence, and paragraph counts, reading time estimation, and frequent word visualization with charts. Features secure cloud storage with Supabase, email and Google authentication, and a persistent light/dark mode.",
+  category: "Web",
+  tags: ["Angular", "TypeScript", "Supabase", "Chart.js", "Tailwind CSS"],
+  image: "https://i.postimg.cc/zf7s8xFM/screencapture-localhost-60318-auth-2026-03-24-20-51-07.png",
+  gradient: "from-cyan-500 to-blue-600",
+  icon: FileText,
+  color: "from-cyan-500 to-blue-500",
+  github: "https://github.com/cawle/TiroText.git",
+  demo: "https://tirotextcounter.netlify.app/dashboard",
+  featured: false,
+},
+{
+  title: "Nationwide Centralised Blood Bank System",
+  description: "A large-scale FYP addressing critical challenges in blood donation and distribution. Fully connected centralized system integrating donors, hospitals, and blood banks with real-time tracking of blood inventory. Designed to reduce delays in emergency blood requests. Assigned by Associate Professor Dr. Basheer Riskhan (Dean, SCI) for implementation in Sri Lanka. Developed in collaboration with Abdullahi Mohamed Ali, Ibrahim Osman Sheikh Hussein, and Abdirrahman Ibrahim Osman. Built with React, PHP, and SQL.",
+  category: "Web",
+  tags: ["React", "PHP", "SQL"],
+  image: "https://i.postimg.cc/GhQ3HxKv/Screenshot-2026-04-19-161847.png",
+  gradient: "from-red-500 to-rose-600",
+  icon: Droplets,
+  color: "from-red-500 to-rose-500",
+  github: "https://github.com/cawle/FYP_Brothers-NCBBS-.git",
+  demo: null,
+  featured: true,
+},
 ];
 
 const categories = ["All", "Web", "AI", "Data", "Mobile"];
@@ -288,7 +311,7 @@ export const Projects = () => {
             </div>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredProjects.map((project, index) => {
               const Icon = project.icon;
               return (
@@ -457,7 +480,7 @@ export const Projects = () => {
                             Code
                           </motion.a>
                         )}
-                        {project.demo && (
+                        {project.demo ? (
                           <motion.a
                             href={project.demo}
                             target="_blank"
@@ -470,6 +493,11 @@ export const Projects = () => {
                             <ExternalLink className="w-4 h-4" />
                             Demo
                           </motion.a>
+                        ) : (
+                          <div className="flex items-center justify-center gap-2 flex-1 px-4 py-2 text-sm font-medium bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-400 rounded-lg cursor-not-allowed">
+                            <Clock className="w-4 h-4" />
+                            Coming Soon!
+                          </div>
                         )}
                       </div>
                     </div>
@@ -581,7 +609,7 @@ export const Projects = () => {
                         View Code
                       </motion.a>
                     )}
-                    {selectedProject.demo && (
+                    {selectedProject.demo ? (
                       <motion.a
                         href={selectedProject.demo}
                         target="_blank"
@@ -593,6 +621,11 @@ export const Projects = () => {
                         <ExternalLink className="w-5 h-5" />
                         Live Demo
                       </motion.a>
+                    ) : (
+                      <div className="flex items-center justify-center gap-2 flex-1 px-6 py-3 font-medium bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-400 rounded-lg cursor-not-allowed">
+                        <Clock className="w-5 h-5" />
+                        Demo Coming Soon!
+                      </div>
                     )}
                   </div>
                 </div>

@@ -153,7 +153,7 @@ export const Hero = () => {
               transition={{ delay: 0.4, type: "spring" }}
               className="text-xl md:text-2xl text-muted-foreground max-w-2xl"
             >
-              Aspiring <span className="text-primary font-semibold bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent">Software Engineer</span> |{" "}
+              Aspiring <span className="text-primary font-semibold bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent">AI & Data Science Engineer</span> |{" "}
               <span className="text-secondary font-semibold bg-gradient-to-r from-accent to-accent bg-clip-text text-transparent">Data Science Student</span> |{" "}
               <span className="text-primary font-semibold bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent">Tech Enthusiast</span>  
             </motion.p>
@@ -165,7 +165,7 @@ export const Hero = () => {
               transition={{ delay: 0.5, type: "spring" }}
               className="text-lg text-muted-foreground p-4 rounded-xl bg-gradient-to-r from-primary/5 to-accent/5 border border-primary/10"
             >
-              Computer Science Student at Albukhary International University
+              Building intelligent systems and data-driven applications at Albukhary International University
             </motion.p>
 
             {/* Enhanced Action Buttons - CV ADDED HERE */}
@@ -294,28 +294,29 @@ export const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Profile Image - 3D Background REMOVED */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="h-[400px] lg:h-[600px] relative flex items-center justify-center"
-          >
-            {/* Profile Image - Now without 3D background */}
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="relative z-10"
-            >
-              <motion.img
-                src={profileImage}
-                alt="Abdullahi Mohamed Ali"
-                className="w-[600px] lg:w-[800px] h-auto object-contain drop-shadow-2xl"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.div>
+         {/* Right Profile Image */}
+<motion.div
+  initial={{ opacity: 0, x: 50 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8 }}
+  className="h-[400px] lg:h-[600px] relative flex items-center justify-center"
+>
+  {/* Profile Image */}
+  <motion.div
+    initial={{ scale: 0.8, opacity: 0 }}
+    animate={{ scale: 1, opacity: 1 }}
+    transition={{ delay: 0.3, duration: 0.8 }}
+    className="relative z-10 -top-20 lg:-top-30"
+  >
+    <motion.img
+      src={profileImage}
+      alt="Abdullahi Mohamed Ali"
+      className="w-[600px] lg:w-[800px] h-auto object-contain drop-shadow-2xl"
+      whileHover={{ scale: 1.05 }}
+      transition={{ duration: 0.3 }}
+    />
+  </motion.div>
+
             
             {/* Floating particles effect - KEPT */}
             <div className="absolute inset-0 pointer-events-none">

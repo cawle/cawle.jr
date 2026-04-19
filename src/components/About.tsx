@@ -67,6 +67,29 @@ const softSkills = [
   { name: "Creativity", level: 90, icon: Sparkles },
 ];
 
+
+const aiSkills = [
+  "Linear Regression",
+  "Logistic Regression",
+  "Decision Trees",
+  "Random Forest",
+  "K-Means Clustering",
+  "Naive Bayes",
+  "Support Vector Machines (SVM)",
+  "Neural Networks",
+  "Gradient Boosting",
+  "K-Nearest Neighbors (KNN)",
+  "Principal Component Analysis (PCA)",
+  "Recurrent Neural Networks (RNN)",
+  "Long Short-Term Memory (LSTM)",
+  "Natural Language Processing (NLP)",
+  "Reinforcement Learning",
+  "Association Rule Learning",
+  "Gaussian Mixture Models (GMM)",
+  "Word Embeddings"
+];
+
+
 const education = [
   {
     year: "2017",
@@ -363,6 +386,7 @@ export const About = () => {
         ))}
       </div>
 
+
       <div className="container mx-auto px-4 sm:px-6">
         {/* Header Section */}
         <motion.div
@@ -456,17 +480,20 @@ export const About = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur opacity-30 group-hover:opacity-50 transition-opacity" />
               <div className="relative p-6 rounded-2xl bg-white dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700">
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                  <span className="text-blue-600 dark:text-blue-400">Aspiring Software Engineer</span> |{" "}
-                  <span className="text-purple-600 dark:text-purple-400"> Data Science Student | Full-Stack Developer</span>
+                  <span className="text-blue-600 dark:text-blue-400">AI & Data Science Engineer</span> |{" "}
+                  <span className="text-purple-600 dark:text-purple-400"> Computer Science | Specialisation in Data Science Student</span>
                 </h3>
                 <div className="space-y-4 text-gray-600 dark:text-gray-300">
                   <p>
-                   Abdullahi Mohamed Ali is an aspiring software engineering professional with hands-on experience in full-stack web development, mobile application development, and data analytics. He builds responsive, user-friendly applications using modern development technologies and follows clean, maintainable coding practices.
+                   Abdullahi Mohamed Ali is an aspiring AI and Data Science professional with hands-on experience in machine learning, data analysis, and data-driven application development. He applies analytical techniques to process, explore, and interpret data, building solutions that extract meaningful insights and support informed decision-making.
                   </p>
                   <p>
-                   He has a solid foundation in Android mobile application development using Java, along with practical knowledge of machine learning and deep learning concepts.
-                   With additional experience in data analysis, he is able to work with data to extract meaningful insights that support informed technical and business decisions.
+                  He has a solid foundation in machine learning, deep learning, and data mining, with experience working on tasks such as classification, clustering, recommendation systems, and anomaly detection. In addition, he is skilled in handling datasets, performing exploratory data analysis, and implementing models using modern data science tools and frameworks.
                   </p>
+                  <p>
+                  With a strong ability to combine analytical thinking and technical skills, he focuses on developing intelligent systems and practical data solutions that address real-world problems.
+                  </p>
+                 
                 </div>
               </div>
             </div>
@@ -506,98 +533,158 @@ export const About = () => {
           </motion.div>
         </div>
 
-        {/* Skills Section */}
-        <div className="grid md:grid-cols-2 gap-12 mb-20">
-          {/* Technical Skills */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6"
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500">
-                <Code className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Technical Skills</h3>
-            </div>
-            <div className="space-y-4">
-              {technicalSkills.map((skill, index) => {
-                const Icon = skill.icon;
-                return (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    className="space-y-2 group"
-                  >
-                    <div className="flex justify-between items-center">
-                      <div className="flex items-center gap-2">
-                        <Icon className="w-4 h-4 text-blue-500" />
-                        <span className="font-medium text-gray-900 dark:text-white">{skill.name}</span>
-                      </div>
-                      <span className="text-blue-600 dark:text-blue-400 font-semibold">{skill.level}%</span>
-                    </div>
-                    <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1, delay: index * 0.1 + 0.3 }}
-                        className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"
-                      />
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </motion.div>
+       {/* Skills Section */}
+<div className="mb-20">
+  
+  {/* Top Grid (Technical + Soft) */}
+  <div className="grid md:grid-cols-2 gap-12 mb-12">
 
-          {/* Soft Skills */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="space-y-6"
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500">
-                <Award className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Soft Skills</h3>
-            </div>
-            <div className="space-y-4">
-              {softSkills.map((skill, index) => {
-                const Icon = skill.icon;
-                return (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 + 0.4 }}
-                    className="space-y-2 group"
-                  >
-                    <div className="flex justify-between items-center">
-                      <div className="flex items-center gap-2">
-                        <Icon className="w-4 h-4 text-purple-500" />
-                        <span className="font-medium text-gray-900 dark:text-white">{skill.name}</span>
-                      </div>
-                      <span className="text-purple-600 dark:text-purple-400 font-semibold">{skill.level}%</span>
-                    </div>
-                    <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1, delay: index * 0.1 + 0.5 }}
-                        className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
-                      />
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </motion.div>
+    {/* Technical Skills */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      className="space-y-6"
+    >
+      <div className="flex items-center gap-3 mb-6">
+        <div className="p-2 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500">
+          <Code className="w-6 h-6 text-white" />
         </div>
+        <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+          Technical Skills
+        </h3>
+      </div>
+
+      <div className="space-y-4">
+        {technicalSkills.map((skill, index) => {
+          const Icon = skill.icon;
+          return (
+            <motion.div
+              key={skill.name}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: index * 0.05 }}
+              className="space-y-2"
+            >
+              <div className="flex justify-between items-center">
+                <div className="flex items-center gap-2">
+                  <Icon className="w-4 h-4 text-blue-500" />
+                  <span className="font-medium text-gray-900 dark:text-white">
+                    {skill.name}
+                  </span>
+                </div>
+                <span className="text-blue-600 dark:text-blue-400 font-semibold">
+                  {skill.level}%
+                </span>
+              </div>
+
+              <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: `${skill.level}%` }}
+                  transition={{ duration: 1 }}
+                  className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"
+                />
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+    </motion.div>
+
+    {/* Soft Skills */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.4 }}
+      className="space-y-6"
+    >
+      <div className="flex items-center gap-3 mb-6">
+        <div className="p-2 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500">
+          <Award className="w-6 h-6 text-white" />
+        </div>
+        <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+          Soft Skills
+        </h3>
+      </div>
+
+      <div className="space-y-4">
+        {softSkills.map((skill, index) => {
+          const Icon = skill.icon;
+          return (
+            <motion.div
+              key={skill.name}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="space-y-2"
+            >
+              <div className="flex justify-between items-center">
+                <div className="flex items-center gap-2">
+                  <Icon className="w-4 h-4 text-purple-500" />
+                  <span className="font-medium text-gray-900 dark:text-white">
+                    {skill.name}
+                  </span>
+                </div>
+                <span className="text-purple-600 dark:text-purple-400 font-semibold">
+                  {skill.level}%
+                </span>
+              </div>
+
+              <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: `${skill.level}%` }}
+                  transition={{ duration: 1 }}
+                  className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+                />
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+    </motion.div>
+
+  </div>
+
+  {/* 🔥 Top AI Algorithms Skills (FULL WIDTH) */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay: 0.6 }}
+    className="space-y-6"
+  >
+    <div className="flex items-center gap-3 mb-6">
+      <div className="p-2 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-500">
+        <Brain className="w-6 h-6 text-white" />
+      </div>
+      <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+        Top AI Algorithms Skills
+      </h3>
+    </div>
+
+    <div className="flex flex-wrap gap-3">
+      {aiSkills.map((skill, index) => (
+        <motion.span
+          key={skill}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: index * 0.05 }}
+          className="px-4 py-2 rounded-full text-sm font-medium 
+          bg-gradient-to-r from-indigo-100 to-purple-100 
+          dark:from-indigo-900/30 dark:to-purple-900/30 
+          text-indigo-700 dark:text-indigo-300 
+          border border-indigo-200 dark:border-indigo-700 
+          hover:scale-105 transition-transform"
+        >
+          {skill}
+        </motion.span>
+      ))}
+    </div>
+  </motion.div>
+
+</div>
+
 
         {/* Education Section */}
         <motion.div
