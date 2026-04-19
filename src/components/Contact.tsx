@@ -7,10 +7,10 @@ import {
   Send, 
   Sparkles, 
   Zap, 
-  MessageCircle,
   CheckCircle,
   Loader2
 } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -69,7 +69,7 @@ export const Contact = () => {
       console.error('Error submitting form:', error);
       toast({
         title: "❌ Failed to Send",
-        description: "Please try again or contact me directly at abdullahi.ali@student.aiu.edu.my",
+        description: "Please try again or contact me directly at abdullahimohamedali.work@gmail.com",
         variant: "destructive",
       });
     } finally {
@@ -81,8 +81,8 @@ export const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "abdullahi.ali@student.aiu.edu.my",
-      href: "mailto:abdullahi.ali@student.aiu.edu.my",
+      value: "abdullahimohamedali.work@gmail.com",
+      href: "mailto:abdullahimohamedali.work@gmail.com",
       color: "from-blue-500 to-cyan-500",
     },
     {
@@ -91,6 +91,13 @@ export const Contact = () => {
       value: "+60 11-7011 3094",
       href: "tel:+601170113094",
       color: "from-purple-500 to-pink-500",
+    },
+    {
+      icon: FaWhatsapp,
+      label: "WhatsApp",
+      value: "+60 11-7011 3094",
+      href: "https://wa.me/601170113094",
+      color: "from-green-500 to-green-600",
     },
     {
       icon: MapPin,
@@ -159,7 +166,7 @@ export const Contact = () => {
               top: `${Math.random() * 100}%`,
             }}
           >
-            <MessageCircle className="w-2 h-2" />
+            <FaWhatsapp className="w-2 h-2" />
           </motion.div>
         ))}
       </div>

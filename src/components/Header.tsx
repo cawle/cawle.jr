@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Moon, Sun, Menu, X, Github, Linkedin, Mail, Zap, FileText } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -15,8 +16,23 @@ const navigation = [
 const socialLinks = [
   { name: "GitHub", icon: Github, href: "https://github.com/cawle" },
   { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/in/abdullahi-mohamed-ali-451562176/" },
-  { name: "Email", icon: Mail, href: "mailto:abdullahi.ali@student.aiu.edu.my" },
+  { name: "Email", icon: Mail, href: "mailto:abdullahimohamedali.work@gmail.com" },
+  { name: "WhatsApp", icon: FaWhatsapp, href: "https://wa.me/601170113094" },
 ];
+
+const socialHoverClasses = (name: string) => {
+  switch (name) {
+    case "WhatsApp":
+      return "hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/30";
+    case "LinkedIn":
+      return "hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/30";
+    case "GitHub":
+    case "Email":
+      return "hover:text-slate-900 dark:hover:text-slate-100 hover:bg-gray-100 dark:hover:bg-gray-800";
+    default:
+      return "hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800";
+  }
+};
 
 export const Header = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -294,7 +310,7 @@ export const Header = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2.5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all relative"
+                    className={`p-2.5 text-gray-500 dark:text-gray-400 rounded-lg transition-all relative ${socialHoverClasses(social.name)}`}
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     whileTap={{ scale: 0.9 }}
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -494,7 +510,7 @@ export const Header = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => setMobileMenuOpen(false)}
-                        className="p-3 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors relative"
+                        className={`p-3 text-gray-500 dark:text-gray-400 rounded-lg transition-colors relative ${socialHoverClasses(social.name)}`}
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         transition={{ delay: 0.3 + index * 0.1 }}

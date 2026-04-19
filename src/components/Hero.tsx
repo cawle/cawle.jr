@@ -2,7 +2,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Sphere, MeshDistortMaterial } from "@react-three/drei";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Phone, MapPin, Sparkles, Rocket, MessageCircle, Star, FileText } from "lucide-react";
+import { Github, Linkedin, Mail, Phone, MapPin, Sparkles, Rocket, Star, FileText } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import profileImage from "@/assets/profile-image.png";
 
@@ -24,8 +25,9 @@ const AnimatedSphere = () => {
 const socialLinks = [
   { icon: Github, href: "https://github.com/cawle", label: "GitHub" },
   { icon: Linkedin, href: "https://www.linkedin.com/in/abdullahi-mohamed-ali-451562176/", label: "LinkedIn" },
-  { icon: Mail, href: "mailto:abdullahi.ali@student.aiu.edu.my", label: "Email" },
+  { icon: Mail, href: "mailto:abdullahimohamedali.work@gmail.com", label: "Email" },
   { icon: Phone, href: "tel:+601170113094", label: "Phone" },
+  { icon: FaWhatsapp, href: "https://wa.me/601170113094", label: "WhatsApp" },
 ];
 
 export const Hero = () => {
@@ -199,7 +201,7 @@ export const Hero = () => {
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button asChild variant="outline" size="lg" className="gap-2 border-2 border-primary/30 hover:border-primary">
                   <a href="#contact">
-                    <MessageCircle className="w-4 h-4" />
+                    <FaWhatsapp className="w-4 h-4" />
                     Get In Touch
                   </a>
                 </Button>
